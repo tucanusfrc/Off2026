@@ -14,10 +14,10 @@ import frc.robot.commands.ManualDrive;
 import frc.robot.commands.OpenStateClimber;
 import frc.robot.commands.Shoot;
 import frc.robot.autos.AutoTeste1;
-import frc.robot.commands.AutoPositionDrive;
-import frc.robot.commands.AutoTurnDrive;
+//import frc.robot.commands.AutoPositionDrive;
+//import frc.robot.commands.AutoTurnDrive;
 import frc.robot.commands.Catch;
-import frc.robot.commands.CatchnShoot;
+//import frc.robot.commands.CatchnShoot;
 import frc.robot.commands.CloseStateClimber;
 import frc.robot.commands.ConvenioOut;
 import frc.robot.commands.Drop;
@@ -72,7 +72,7 @@ public class RobotContainer {
       
       new JoystickButton(mec_Controller, XboxController.Button.kB.value)
         .whileTrue(new ConvenioOut(convenioSubsystem)
-      );
+      ); 
       
       new JoystickButton(mec_Controller, XboxController.Button.kA.value)
         .whileTrue(new Catch(intakeShooter, convenioSubsystem)
