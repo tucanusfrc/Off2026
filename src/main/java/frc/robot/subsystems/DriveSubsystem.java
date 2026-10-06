@@ -16,10 +16,17 @@ import frc.robot.Constants;
 
 public class DriveSubsystem extends SubsystemBase {
     
+
     private SparkMax m_left_Leader = new SparkMax(24, MotorType.kBrushless);
     private SparkMax m_left_Follower = new SparkMax(16, MotorType.kBrushless);
     private SparkMax m_right_Leader = new SparkMax(17, MotorType.kBrushless);
     private SparkMax m_right_Follower = new SparkMax(23, MotorType.kBrushless);
+
+    
+    private VictorSPX v_left_Leader = new VictorSPX(7);
+    private VictorSPX v_left_Follower = new VictorSPX(8);
+    private VictorSPX v_right_Leader = new VictorSPX(1);
+    private VictorSPX v_right_Follower = new VictorSPX(5);
 
     private SparkMaxConfig c_leftFollower = new SparkMaxConfig();
     private SparkMaxConfig c_rightFollower = new SparkMaxConfig();
@@ -90,7 +97,12 @@ public class DriveSubsystem extends SubsystemBase {
             rightSpeedDrive = Math.abs(right_axis) > tolerance ? right_axis * Constants.DrivePower: 0;
         }
 
-        drive.tankDrive(-leftSpeedDrive, rightSpeedDrive);
+        // drive.tankDrive(-leftSpeedDrive, rightSpeedDrive);
+
+        v_left_Leader.set(VictorSPXControlMode.PercentOutput, leftSpeedDrive);
+        v_left_Follower.set(VictorSPXControlMode.PercentOutput, leftSpeedDrive);
+        v_right_Leader.set(VictorSPXControlMode.PercentOutput, -rightSpeedDrive);
+        v_right_Follower.set(VictorSPXControlMode.PercentOutput, -rightSpeedDrive);
 
     }
 

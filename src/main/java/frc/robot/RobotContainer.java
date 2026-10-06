@@ -42,7 +42,7 @@ public class RobotContainer {
 
   public RobotContainer() {
 
-    autoChooser.setDefaultOption("vai e volt", new AutoTeste1(drive, climber));
+    autoChooser.setDefaultOption("vai e volt", new AutoTeste1(drive, climber, intakeShooter, convenioSubsystem));
 
     drive.setDefaultCommand(new ManualDrive(drive, drive_Controller));
 
