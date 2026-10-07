@@ -1,5 +1,7 @@
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.VictorSPXControlMode;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.revrobotics.PersistMode;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.ResetMode;
@@ -22,7 +24,6 @@ public class DriveSubsystem extends SubsystemBase {
     private SparkMax m_right_Leader = new SparkMax(17, MotorType.kBrushless);
     private SparkMax m_right_Follower = new SparkMax(23, MotorType.kBrushless);
 
-    
     private VictorSPX v_left_Leader = new VictorSPX(7);
     private VictorSPX v_left_Follower = new VictorSPX(8);
     private VictorSPX v_right_Leader = new VictorSPX(1);
@@ -99,10 +100,10 @@ public class DriveSubsystem extends SubsystemBase {
 
         // drive.tankDrive(-leftSpeedDrive, rightSpeedDrive);
 
-        v_left_Leader.set(VictorSPXControlMode.PercentOutput, leftSpeedDrive);
-        v_left_Follower.set(VictorSPXControlMode.PercentOutput, leftSpeedDrive);
-        v_right_Leader.set(VictorSPXControlMode.PercentOutput, -rightSpeedDrive);
-        v_right_Follower.set(VictorSPXControlMode.PercentOutput, -rightSpeedDrive);
+        v_left_Leader.set(VictorSPXControlMode.PercentOutput, rightSpeedDrive);
+        v_left_Follower.set(VictorSPXControlMode.PercentOutput, rightSpeedDrive);
+        v_right_Leader.set(VictorSPXControlMode.PercentOutput, -leftSpeedDrive);
+        v_right_Follower.set(VictorSPXControlMode.PercentOutput, -leftSpeedDrive);
 
     }
 
